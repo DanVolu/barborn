@@ -5,10 +5,9 @@ import Landing from "./components/pages/sections/Landing";
 function App() {
   return (
     <>
-    <Navbar />
-    <Landing />
-    <Landing />
-   </>
+      <Navbar />
+      <Landing />
+    </>
   );
 }
 

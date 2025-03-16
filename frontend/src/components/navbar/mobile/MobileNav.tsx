@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-function MobileNavbar() {
+function MobileNav() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
@@ -51,7 +51,7 @@ function MobileNavbar() {
         }`}
       >
         <button
-          className="md:hidden bg-gray-200 text-gray-700 hover:bg-gray-300 hover:text-gray-900 transform transition duration-500 px-4 py-2 rounded-md shadow-md"
+          className="md:hidden bg-gray- text-gray-700 hover:bg-gray-200 hover:text-gray-900 transform transition duration-500 px-4 py-2 rounded-md shadow-md"
           onClick={() => setIsOpen(!isOpen)}
         >
           Menu
@@ -59,7 +59,7 @@ function MobileNavbar() {
         {isOpen && (
           <ul
             ref={dropdownRef}
-            className="absolute right-0 mr-4 w-11/12 bg-gray-200 rounded-md shadow-lg"
+            className="absolute right-0 mr-4 w-11/12 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg shadow-lg opacity-90"
           >
             {[
               { name: "Equipment", link: "equipment" },
@@ -69,7 +69,7 @@ function MobileNavbar() {
             ].map((item) => (
               <li
                 key={item.name}
-                className="px-4 py-2 text-gray-600 hover:bg-gray-300 hover:text-gray-800 transition transform duration-400 rounded-lg"
+                className="px-4 py-2 text-gray-200 hover:bg-gray-300 hover:text-gray-800 transition transform duration-400 rounded-lg"
               >
                 <a href={item.link} className="block w-full h-full">
                   {item.name}
@@ -83,4 +83,4 @@ function MobileNavbar() {
   );
 }
 
-export default MobileNavbar;
+export default MobileNav;
