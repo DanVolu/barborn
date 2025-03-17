@@ -51,7 +51,7 @@ function MobileNav() {
         }`}
       >
         <button
-          className="md:hidden bg-gray- text-gray-700 hover:bg-gray-200 hover:text-gray-900 transform transition duration-500 px-4 py-2 rounded-md shadow-md"
+          className="md:hidden bg-white/20 text-gray-700  hover:bg-gray-200 hover:text-gray-900 transform transition duration-500 px-4 py-2 rounded-md shadow-md"
           onClick={() => setIsOpen(!isOpen)}
         >
           Menu
