@@ -38,7 +38,7 @@ function Navbar() {
             : "opacity-0 translate-y-[-100%]"
         }`}
       >
-        <ul className="hidden md:flex gap-4 justify-end p-2 rounded-xl min-w-3/12 font-medium bg-gray- backdrop-blur-xs ">
+        <ul className="hidden md:flex gap-4 justify-end bg-[#1b1b1b]/70 border border-[#3a3a3a]/40 shadow-lg shadow-black/40 p-2 rounded-xl min-w-3/12 font-medium">
           {[
             { name: "Equipment", link: "equipment" },
             { name: "Supplements", link: "supplements" },
@@ -47,7 +47,7 @@ function Navbar() {
           ].map((item) => (
             <li
               key={item.name}
-              className="p-1 px-4 text-gray-900 hover:text-gray-950 hover:scale-105 transition duration-200"
+              className="p-1 px-4 text-gray-200 transition-all duration-300 hover:text-gray-100 hover:scale-105 hover:drop-shadow-md"
             >
               <a href={item.link}>{item.name}</a>
             </li>

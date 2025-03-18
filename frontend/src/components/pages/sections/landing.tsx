@@ -6,7 +6,7 @@ function Landing() {
           <div className="hidden  absolute -ml-24 top-0 -mt-55 inset-0 z-0 lg:flex justify-center items-center ">
             <img
               src={`${import.meta.env.BASE_URL}left-ring.png`}
-              alt=""
+              alt="gymnastic rings"
               className="w-[46rem] h-[46rem] object-contain"
               draggable="false"
             />
@@ -14,7 +14,7 @@ function Landing() {
           <div className="hidden absolute -mt-70 pl-65 inset-0 z-0 lg:flex justify-center items-center ">
             <img
               src={`${import.meta.env.BASE_URL}right.png`}
-              alt=""
+              alt="gymnastic rings"
               className="w-[56rem] h-[56rem] object-contain"
               draggable="false"
             />
@@ -22,7 +22,7 @@ function Landing() {
           <div className="hidden absolute -mt-70 pl-65 inset-0 z-40 lg:flex justify-center items-center ">
             <img
               src={`${import.meta.env.BASE_URL}partial-right.png`}
-              alt=""
+              alt="gymnastic rings"
               className="w-[56rem] h-[56rem] object-contain"
               draggable="false"
             />
