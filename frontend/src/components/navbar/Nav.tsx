@@ -24,7 +24,7 @@ function Navbar() {
 
   return (
     <>
-      <div className="absolute flex text-gray-200 px-6 py-4 font-semibold ">
+      <div className="absolute flex text-gray-200 px-6 py-4 font-semibold z-50">
         <img
           src={`${import.meta.env.BASE_URL}bar.png`}
           alt="Bar-Born"
@@ -32,13 +32,13 @@ function Navbar() {
         />
       </div>
       <nav
-        className={`fixed top-0 left-0 right-0 flex justify-end p-4 transition-all duration-500  ${
+        className={`fixed top-0 left-0 right-0 flex justify-end p-4 transition-all duration-500 z-50 ${
           isVisible
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-[-100%]"
         }`}
       >
-        <ul className="hidden md:flex gap-4 justify-end p-2 rounded-xl min-w-3/12 font-medium bg-gray- backdrop-blur-xs">
+        <ul className="hidden md:flex gap-4 justify-end p-2 rounded-xl min-w-3/12 font-medium bg-gray- backdrop-blur-xs ">
           {[
             { name: "Equipment", link: "equipment" },
             { name: "Supplements", link: "supplements" },
