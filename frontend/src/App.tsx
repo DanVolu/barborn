@@ -1,14 +1,15 @@
 import "./App.css";
-import Navbar from "./components/navbar/Nav";
-import Equipment from "./components/pages/sections/Equipment";
-import Landing from "./components/pages/sections/Landing";
+import { Routes, Route } from "react-router-dom";
+import Main from "./components/pages/Main";
+import Rings from "./components/pages/templates/Rings";
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Landing />
-      <Equipment />
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/gymnastic-rings/" element={<Rings />} />
+      </Routes>
     </>
   );
 }

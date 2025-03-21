@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import { useCarouselDrag } from "../../hooks/carouselDrag"; // Import the hook
+import { useCarouselDrag } from "../../hooks/carouselDrag";
 
-function Equipment() {
+function Training() {
   const navigate = useNavigate();
   const {
     carouselRef,
+    isDragging,
     clickPrevent,
     handleMouseDown,
     handleMouseLeave,
@@ -13,33 +14,39 @@ function Equipment() {
   } = useCarouselDrag();
 
   const imageMap: Record<string, string> = {
-    "Gymnastic rings": `${import.meta.env.BASE_URL}rings.jpg`,
-    "Parallette bars": `${import.meta.env.BASE_URL}parallette.png`,
-    Weights: `${import.meta.env.BASE_URL}weights.png`,
-    Accessories: `${import.meta.env.BASE_URL}accessories.png`,
+    "Free sample workouts": `${import.meta.env.BASE_URL}free.png`,
+    "Calisthenics": `${import.meta.env.BASE_URL}cali.png`,
+    "Street workout": `${import.meta.env.BASE_URL}SW.png`,
+    "Street lifting": `${import.meta.env.BASE_URL}SL.jpg`,
+    "Size": `${import.meta.env.BASE_URL}size.png`,
+    "Strength": `${import.meta.env.BASE_URL}strength.png`,
+    "Mobility": `${import.meta.env.BASE_URL}mobility.png`,
   };
 
-  const equipmentList = [
-    "Gymnastic rings",
-    "Parallette bars",
-    "Weights",
-    "Accessories",
+  const trainingGoals = [
+    "Free sample workouts",
+    "Calisthenics",
+    "Street workout",
+    "Street lifting",
+    "Size",
+    "Strength",
+    "Mobility",
   ];
 
   const handleNavigation = (item: string) => {
     if (clickPrevent) return;
     const formattedItem = item.toLowerCase().replace(/\s+/g, "-");
-    navigate(`/${formattedItem}/`);
+    navigate(`/training/${formattedItem}/`);
   };
 
   return (
-    <div className="h-full bg-gradient-to-br from-[#d2d2d2] via-[#2d2d2d] to-[#0d0d0d]">
+    <div className="h-full bg-gradient-to-br from-[#0d0d0d] via-[#0d0d0d] to-[#0d0d0d]">
       <div className="flex justify-start md:justify-center items-center">
         <h2
-          id="equipment"
-          className="text-2xl font-medium bg-gradient-to-l text-transparent bg-clip-text from-[#0c0c0c] to-[#2d2d2d] py-6 sm:py-6 px-6"
+          id="training"
+          className="text-2xl font-medium bg-gradient-to-l text-transparent bg-clip-text from-[#dfdfdf] to-[#d2d2d2] px-6"
         >
-          Browse by equipment
+          Browse by training goal
         </h2>
       </div>
       <div className="relative overflow-hidden">
@@ -51,11 +58,11 @@ function Equipment() {
           onMouseUp={handleMouseUp}
           onMouseMove={handleMouseMove}
           style={{
-            cursor: "grab",
+            cursor: isDragging ? "grab" : "pointer",
             userSelect: "none",
           }}
         >
-          {equipmentList.map((item, index) => (
+          {trainingGoals.map((item, index) => (
             <div
               key={index}
               onClick={() => handleNavigation(item)}
@@ -78,4 +85,4 @@ function Equipment() {
   );
 }
 
-export default Equipment;
+export default Training;
