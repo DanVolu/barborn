@@ -1,7 +1,8 @@
 import express from "express";
+import equipmentRoutes from "./categories/equipment";
 
 const router = express.Router();
 
-// router.use("/example", routeRoutes);
+router.use("/equipment", equipmentRoutes);
 
 export default router;

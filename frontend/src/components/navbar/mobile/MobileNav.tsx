@@ -64,10 +64,10 @@ function MobileNav() {
             className="absolute right-0 mr-4 w-11/12 bg-[#1b1b1b]/80 border border-[#3a3a3a] shadow-lg shadow-black/40 rounded-lg opacity-95 transition-all duration-300"
           >
             {[
-              { name: "Equipment", link: "equipment" },
-              { name: "Supplements", link: "supplements" },
-              { name: "Training Plans", link: "training" },
-              { name: "Contacts", link: "contacts" },
+              { name: "Equipment", link: "#equipment" },
+              { name: "Supplements", link: "#supplements" },
+              { name: "Training Plans", link: "#training" },
+              { name: "Contacts", link: "#contacts" },
             ].map((item) => (
               <li
                 key={item.name}
