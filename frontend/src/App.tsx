@@ -1,14 +1,14 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Main from "./components/pages/Main";
-import Rings from "./components/pages/templates/Rings";
+import Equipment from "./components/pages/templates/Equipment";
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/gymnastic-rings/" element={<Rings />} />
+        <Route path="/equipment/" element={<Equipment />} />
       </Routes>
     </>
   );

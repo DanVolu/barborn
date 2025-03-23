@@ -1,5 +1,11 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCarouselDrag } from "../../hooks/carouselDrag"; // Import the hook
+import { useCarouselDrag } from "../../hooks/carouselDrag";
+
+interface EquipmentCard {
+  name: string;
+  image?: string;
+}
 
 function Equipment() {
   const navigate = useNavigate();
@@ -12,19 +18,16 @@ function Equipment() {
     handleMouseMove,
   } = useCarouselDrag();
 
-  const imageMap: Record<string, string> = {
-    "Gymnastic rings": `${import.meta.env.BASE_URL}rings.jpg`,
-    "Parallette bars": `${import.meta.env.BASE_URL}parallette.png`,
-    Weights: `${import.meta.env.BASE_URL}weights.png`,
-    Accessories: `${import.meta.env.BASE_URL}accessories.png`,
-  };
+  const [equipmentList, setEquipmentList] = useState<EquipmentCard[]>([]);
 
-  const equipmentList = [
-    "Gymnastic rings",
-    "Parallette bars",
-    "Weights",
-    "Accessories",
-  ];
+  useEffect(() => {
+    fetch("http://localhost:7000/api/v1/equipment/cards")
+      .then((response) => response.json())
+      .then((data: EquipmentCard[]) => {
+        setEquipmentList(data);
+      })
+      .catch((error) => console.error("Error fetching equipment:", error));
+  }, []);
 
   const handleNavigation = (item: string) => {
     if (clickPrevent) return;
@@ -55,23 +58,31 @@ function Equipment() {
             userSelect: "none",
           }}
         >
-          {equipmentList.map((item, index) => (
-            <div
-              key={index}
-              onClick={() => handleNavigation(item)}
-              className="min-w-[80%] md:min-w-[25rem] lg:min-w-[30rem] h-[30rem] rounded-lg border border-[#3a3a3a] shadow-lg shadow-black/40 transition-all duration-300 hover:scale-[1.02] hover:border-[#a0a0a0]/30 relative cursor-pointer"
-              style={{
-                backgroundImage: imageMap[item] ? `url(${imageMap[item]})` : "none",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundColor: imageMap[item] ? "transparent" : "rgba(27, 27, 27, 0.8)",
-              }}
-            >
-              <h3 className="text-[#d2d2d2] font-medium text-2xl absolute bottom-4 left-4">
-                {item}
-              </h3>
-            </div>
-          ))}
+          {equipmentList.map((item, index) => {
+            const imageUrl = item.image;
+
+            return (
+              <div
+                key={index}
+                onClick={() => handleNavigation(item.name)}
+                className="min-w-[80%] md:min-w-[25rem] lg:min-w-[30rem] h-[30rem] rounded-lg border border-[#3a3a3a] shadow-lg shadow-black/40 transition-all duration-300 hover:scale-[1.02] hover:border-[#a0a0a0]/30 relative cursor-pointer"
+                style={{
+                  backgroundImage:
+                    imageUrl !== "none" ? `url(${imageUrl})` : "none",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundColor:
+                    imageUrl === "none"
+                      ? "rgba(27, 27, 27, 0.8)"
+                      : "transparent",
+                }}
+              >
+                <h3 className="text-[#d2d2d2] font-medium text-2xl absolute bottom-4 left-4">
+                  {item.name}
+                </h3>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

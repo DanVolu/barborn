@@ -7,10 +7,10 @@ const app = express();
 
 connectDB();
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 7000;
 
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: "http://localhost:5173",
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
 }));
