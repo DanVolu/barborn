@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Rings() {
+  const navigate = useNavigate();
+
   const initialProducts = [
     {
       id: 1,
@@ -25,11 +28,28 @@ function Rings() {
     },
   ];
 
-  // Manage product list and sort order in state.
   const [productsState, setProductsState] = useState(initialProducts);
   const [sortOrder, setSortOrder] = useState("asc");
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
 
-  // Toggle sort order and sort products accordingly.
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        setIsVisible(false);
+      } else if (currentScrollY < lastScrollY) {
+        setIsVisible(true);
+      }
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
+
   function toggleSort() {
     const newOrder = sortOrder === "asc" ? "desc" : "asc";
     setSortOrder(newOrder);
@@ -43,6 +63,17 @@ function Rings() {
 
   return (
     <main className="flex">
+      <div
+        className={`fixed top-0 left-1 flex justify-end px-8 py-6 text-3xl transition-all duration-500 z-50  ${
+          isVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-[-100%]"
+        }`}
+      >
+        <a onClick={() => navigate("/")} className="text-[#d2d2d2] cursor-pointer ">
+          ←
+        </a>
+      </div>
       <div className="p-20 min-h-screen flex flex-col justify-center md:items-center w-full px-4 bg-gradient-to-br from-[#101010] via-[#424242] to-[#2d2d2d]">
         <div className="flex flex-col xl:flex-row gap-8 justify-between md:w-10/12 px-4">
           <div className="min-w-10/12 h-[20rem] xl:min-w-[30rem] lg:h-[40rem] xl:h-[30rem] rounded-lg bg-[#1b1b1b]/80 border border-[#3a3a3a] shadow-lg shadow-black/40 transition-all duration-300 hover:scale-[1.02] hover:border-[#a0a0a0]/30 relative">
@@ -88,7 +119,8 @@ function Rings() {
                 onClick={toggleSort}
                 className="bg-[#d2d2d2] text-[#1b1b1b] py-2 px-6 mt-4 lg:mt-0 rounded-lg font-medium cursor-pointer hover:scale-[1.03] hover:bg-[#d2d2d2]/80 transition-all duration-300 self-start"
               >
-                Sort Price: {sortOrder === "asc" ? "Low to High" : "High to Low"}
+                Sort Price:{" "}
+                {sortOrder === "asc" ? "Low to High" : "High to Low"}
               </button>
             </div>
 
