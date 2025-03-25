@@ -1,46 +1,23 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Rings() {
   const navigate = useNavigate();
 
-  const initialProducts = [
-    {
-      id: 1,
-      name: "Gymnastic Rings - Amazon",
-      price: "$29.99",
-      url: "https://www.amazon.com/dp/B08FGP4JKJ",
-      image: "https://via.placeholder.com/150",
-    },
-    {
-      id: 2,
-      name: "Gymnastic Rings - eBay",
-      price: "$25.99",
-      url: "https://www.ebay.com/itm/274961896947",
-      image: "https://via.placeholder.com/150",
-    },
-    {
-      id: 3,
-      name: "Gymnastic Rings - Walmart",
-      price: "$35.49",
-      url: "https://www.walmart.com/ip/444755167",
-      image: "https://via.placeholder.com/150",
-    },
-  ];
 
-  const [productsState, setProductsState] = useState(initialProducts);
-  const [sortOrder, setSortOrder] = useState("asc");
+  // const [productsState, setProductsState] = useState(initialProducts);
+  // const [sortOrder, setSortOrder] = useState("asc");
 
-  function toggleSort() {
-    const newOrder = sortOrder === "asc" ? "desc" : "asc";
-    setSortOrder(newOrder);
-    const sortedProducts = [...productsState].sort((a, b) => {
-      const priceA = parseFloat(a.price.replace("$", ""));
-      const priceB = parseFloat(b.price.replace("$", ""));
-      return newOrder === "asc" ? priceA - priceB : priceB - priceA;
-    });
-    setProductsState(sortedProducts);
-  }
+  // function toggleSort() {
+  //   const newOrder = sortOrder === "asc" ? "desc" : "asc";
+  //   setSortOrder(newOrder);
+  //   const sortedProducts = [...productsState].sort((a, b) => {
+  //     const priceA = parseFloat(a.price.replace("$", ""));
+  //     const priceB = parseFloat(b.price.replace("$", ""));
+  //     return newOrder === "asc" ? priceA - priceB : priceB - priceA;
+  //   });
+  //   setProductsState(sortedProducts);
+  // }
 
   return (
     <main className="flex">
@@ -96,15 +73,15 @@ function Rings() {
                 Where to Buy Gymnastic Rings
               </h3>
               <button
-                onClick={toggleSort}
+                // onClick={toggleSort}
                 className="bg-[#d2d2d2] text-[#1b1b1b] py-2 px-6 mt-4 lg:mt-0 rounded-lg font-medium cursor-pointer hover:scale-[1.03] hover:bg-[#d2d2d2]/80 transition-all duration-300 self-start"
               >
                 Sort Price:{" "}
-                {sortOrder === "asc" ? "Low to High" : "High to Low"}
+                {/* {sortOrder === "asc" ? "Low to High" : "High to Low"} */}
               </button>
             </div>
 
-            {productsState.map((product) => (
+            {/* {productsState.map((product) => (
               <a
                 key={product.id}
                 href={product.url}
@@ -123,7 +100,7 @@ function Rings() {
                   </span>
                 </div>
               </a>
-            ))}
+            ))} */}
           </div>
         </div>
       </div>
