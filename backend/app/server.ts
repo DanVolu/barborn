@@ -10,7 +10,7 @@ connectDB();
 const port = process.env.PORT || 7000;
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173", "https://danvolu.github.io/barborn/"],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
 }));
@@ -18,7 +18,7 @@ app.use(cors({
 
 app.use(express.json()); 
 
-app.use("/api/v1/", routes);
+app.use("/api/v1", routes);
 
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}/api/v1/`);
