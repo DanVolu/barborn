@@ -36,11 +36,11 @@ function Equipment() {
   };
 
   return (
-    <div className="h-full bg-gradient-to-br from-[#d2d2d2] via-[#2d2d2d] to-[#0d0d0d]">
+    <div className="h-full bg-gradient-to-br from-[#2d2d2d] via-[#0d0d0d] to-[#0d0d0d]">
       <div className="flex justify-start md:justify-center items-center">
         <h2
           id="equipment"
-          className="text-2xl font-medium bg-gradient-to-l text-transparent bg-clip-text from-[#0c0c0c] to-[#2d2d2d] py-6 sm:py-6 px-6"
+          className="text-2xl font-medium bg-gradient-to-l text-transparent bg-clip-text from-[#d2d2d2] to-[#d2d2d2] py-6 sm:py-6 px-6"
         >
           Browse by equipment
         </h2>
@@ -59,7 +59,10 @@ function Equipment() {
           }}
         >
           {equipmentList.map((item, index) => {
-            const imageUrl = item.image;
+            let imageUrl = item.image;
+            if (imageUrl?.includes("imgur.com") && !imageUrl.endsWith(".jpg")) {
+              imageUrl = imageUrl.replace("imgur.com", "i.imgur.com") + ".jpg";
+            }
 
             return (
               <div

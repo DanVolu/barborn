@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Rings() {
@@ -30,25 +30,6 @@ function Rings() {
 
   const [productsState, setProductsState] = useState(initialProducts);
   const [sortOrder, setSortOrder] = useState("asc");
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY > lastScrollY && currentScrollY > 50) {
-        setIsVisible(false);
-      } else if (currentScrollY < lastScrollY) {
-        setIsVisible(true);
-      }
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [lastScrollY]);
 
   function toggleSort() {
     const newOrder = sortOrder === "asc" ? "desc" : "asc";
@@ -64,13 +45,12 @@ function Rings() {
   return (
     <main className="flex">
       <div
-        className={`fixed top-0 left-1 flex justify-end px-8 py-6 text-3xl transition-all duration-500 z-50  ${
-          isVisible
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-[-100%]"
-        }`}
+        className={`absolute  top-0 left-1 flex justify-end px-8 py-6 text-3xl transition-all duration-500 z-50 `}
       >
-        <a onClick={() => navigate("/")} className="text-[#d2d2d2] cursor-pointer ">
+        <a
+          onClick={() => navigate("/")}
+          className="text-[#d2d2d2] cursor-pointer "
+        >
           ←
         </a>
       </div>
