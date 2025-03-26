@@ -4,8 +4,10 @@
   "main": "index.js",
   "scripts": {
     "test": "node --test --require ts-node/register ./tests/discount/addDiscount.test.ts",
-    "dev": "nodemon ./app/server.ts",
-    "format": "prettier --write '**/*.{ts,js,json,md}'"
+    "format": "prettier --write '**/*.{ts,js,json,md}'",
+    "build": "tsc",
+    "start": "node ./dist/server.js",
+    "dev": "nodemon ./app/server.ts"
   },
   "author": "",
   "license": "ISC",
