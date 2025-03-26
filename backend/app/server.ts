@@ -10,7 +10,7 @@ connectDB();
 const port = process.env.PORT || 7000;
 
 app.use(cors({
-    origin: ["http://localhost:5173", "https://barborn.vercel.app/#training"], //"https://danvolu.github.io/barborn/"
+    origin: ["http://localhost:5173", "https://danvolu.github.io/barborn/"],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
 }));

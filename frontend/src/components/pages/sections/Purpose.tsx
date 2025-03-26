@@ -7,7 +7,7 @@ function Purpose() {
         </h2>
       </div>
       <div className="flex flex-wrap justify-center gap-8 p-4 w-11/12 mx-auto pb-44 pt-12">
-        <div className="flex flex-col justify-between rounded-lg p-5 bg-[#1b1b1b]/80 border border-[#3a3a3a] shadow-lg shadow-black/40 transition-all duration-300 hover:scale-[1.02] hover:border-[#a0a0a0]/30 w-full sm:w-[35rem] h-72">
+        <div className="flex flex-col justify-between rounded-lg p-5 bg-[#1b1b1b]/80 border border-[#3a3a3a] shadow-lg shadow-black/40 transition-all duration-300 hover:scale-[1.02] hover:border-[#a0a0a0]/30 w-full sm:w-[35rem] h-86 sm:h-72">
           <div>
             <h3 className="text-2xl text-[#d2d2d2] font-medium mb-4">
               Not just selling—making sure you know if you need it and how to
@@ -20,7 +20,7 @@ function Purpose() {
             </p>
           </div>
         </div>
-        <div className="flex flex-col justify-between rounded-lg p-5 bg-[#1b1b1b]/80 border border-[#3a3a3a] shadow-lg shadow-black/40 transition-all duration-300 hover:scale-[1.02] hover:border-[#a0a0a0]/30 w-full sm:w-[35rem] h-72">
+        <div className="flex flex-col justify-between rounded-lg p-5 bg-[#1b1b1b]/80 border border-[#3a3a3a] shadow-lg shadow-black/40 transition-all duration-300 hover:scale-[1.02] hover:border-[#a0a0a0]/30 w-full sm:w-[35rem] h-86 sm:h-72">
           <div>
             <h3 className="text-2xl text-[#d2d2d2] font-medium my-4">
               Finding the best quality
@@ -33,7 +33,7 @@ function Purpose() {
             </p>
           </div>
         </div>
-        <div className="flex flex-col justify-between rounded-lg p-5 bg-[#1b1b1b]/80 border border-[#3a3a3a] shadow-lg shadow-black/40 transition-all duration-300 hover:scale-[1.02] hover:border-[#a0a0a0]/30 w-full sm:w-[35rem] h-72">
+        <div className="flex flex-col justify-between rounded-lg p-5 bg-[#1b1b1b]/80 border border-[#3a3a3a] shadow-lg shadow-black/40 transition-all duration-300 hover:scale-[1.02] hover:border-[#a0a0a0]/30 w-full sm:w-[35rem] h-86 sm:h-72">
           <div>
             <h3 className="text-2xl text-[#d2d2d2] font-medium mb-4">
               How can we help?
