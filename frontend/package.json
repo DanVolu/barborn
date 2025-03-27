@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
+    "preview": "vite preview --port $PORT",
+    "start": "vite preview --port $PORT",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
