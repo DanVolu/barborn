@@ -10,7 +10,7 @@ connectDB();
 const port = process.env.PORT || 7000;
 
 app.use(cors({
-    origin: ["http://localhost:5173", "https://barborn-1.onrender.com/"],
+    origin: ["http://localhost:5173", "https://barborn-1.onrender.com"],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
 }));
