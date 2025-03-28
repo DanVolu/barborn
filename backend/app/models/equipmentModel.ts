@@ -18,6 +18,7 @@ export interface ICard extends Document {
   name: string;
   link: string;
   image: string;
+  category?: string;
   description?: ICardDescription;
   detailLinks?: DetailLink[];
 }
@@ -41,6 +42,7 @@ const CardSchema: Schema = new Schema(
     name: { type: String, required: true },
     link: { type: String, required: true },
     image: { type: String, required: true },
+    category: { type: String, required: false },
     description: { type: EquipmentDescriptionSchema },
     detailLinks: { type: [LinkSchema] },
   },
