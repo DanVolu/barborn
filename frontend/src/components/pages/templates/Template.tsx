@@ -34,7 +34,7 @@ function Template() {
     setIsLoading(true);
     setError(null);
 
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/equipment/card/${name}`)
+    fetch(`https://barborn.onrender.com/api/v1/equipment/card/${name}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error(`Failed to fetch equipment: ${res.status}`);

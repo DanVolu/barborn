@@ -21,7 +21,7 @@ function Equipment() {
   const [equipmentList, setEquipmentList] = useState<EquipmentCard[]>([]);
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/equipment/cards`)
+    fetch(`https://barborn.onrender.com/api/v1/equipment/cards`) //## AAAAA DON'T FORGET
       .then((response) => response.json())
       .then((data: EquipmentCard[]) => {
         setEquipmentList(data);
