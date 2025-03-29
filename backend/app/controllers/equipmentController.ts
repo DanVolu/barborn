@@ -30,10 +30,21 @@ const equipmentController = {
 
   getCardName: async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const card = await Card.find({ name: req.params.name }).select(
-        "name -_id"
-      );
-      console.log("card: ", card);
+      const normalizedName = req.params.name.replace(/-/g, " ");
+
+      let card = await Card.findOne({
+        name: { $regex: new RegExp(`^${normalizedName}$`, "i") },
+      });
+
+      if (!card) {
+        card = await Card.findOne({
+          name: { $regex: new RegExp(normalizedName, "i") },
+        });
+      }
+
+      if (!card) {
+      }
+
       res.json(card);
     } catch (err) {
       next(err);
@@ -52,21 +63,18 @@ const equipmentController = {
     }
   },
 
-  //   getCardsById: async (
-  //     req: Request,
-  //     res: Response,
-  //     next: NextFunction
-  //   ) => {
-  //     try {
-  //       const card = await Card.find({ _id: req.params.id }).select(
-  //         "_id"
-  //       );
-  //       console.log("Backend card by Id: ", card);
-  //       res.json(card);
-  //     } catch (err) {
-  //       next(err);
+  // getCardsById: async (req: Request, res: Response, next: NextFunction) => {
+  //   try {
+  //     const card = await Card.findById(req.params.id);
+  //     if (!card) {
+  //       return res.status(404).json({ error: "Equipment not found" });
   //     }
-  //   },
+  //     console.log("Backend card by Id: ", card);
+  //     res.json(card);
+  //   } catch (err) {
+  //     next(err);
+  //   }
+  // },
 };
 
 export default equipmentController;

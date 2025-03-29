@@ -32,7 +32,7 @@ function Equipment() {
   const handleNavigation = (item: string) => {
     if (clickPrevent) return;
     const formattedItem = item.toLowerCase().replace(/\s+/g, "-");
-    navigate(`/${formattedItem}/`);
+    navigate(`/equipment/${formattedItem}`);
   };
 
   return (
