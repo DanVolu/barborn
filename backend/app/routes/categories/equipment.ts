@@ -11,4 +11,7 @@ router.get("/cards/:category", equipmentController.getCardsByCategory);
 router.get("/card/:name", equipmentController.getCardName);
 // router.get("/card/:id", equipmentController.getCardsById);
 
+//test
+router.get("/test", equipmentController.test);
+
 export default router;

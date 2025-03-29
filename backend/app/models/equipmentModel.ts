@@ -32,8 +32,8 @@ const LinkSchema: Schema = new Schema({
 
 const EquipmentDescriptionSchema: Schema = new Schema({
   text: { type: String, required: true },
-  difficulty: { type: Number },
-  usefulness: { type: Number },
+  difficulty: { type: String },
+  usefulness: { type: String },
   exercises: { type: [String] },
 });
 

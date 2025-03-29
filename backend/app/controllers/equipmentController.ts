@@ -30,7 +30,9 @@ const equipmentController = {
 
   getCardName: async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const card = await Card.find({ name: req.params.name }).select("name -_id");
+      const card = await Card.find({ name: req.params.name }).select(
+        "name -_id"
+      );
       console.log("card: ", card);
       res.json(card);
     } catch (err) {
@@ -38,21 +40,33 @@ const equipmentController = {
     }
   },
 
-//   getCardsById: async (
-//     req: Request,
-//     res: Response,
-//     next: NextFunction
-//   ) => {
-//     try {
-//       const card = await Card.find({ _id: req.params.id }).select(
-//         "_id"
-//       );
-//       console.log("Backend card by Id: ", card);
-//       res.json(card);
-//     } catch (err) {
-//       next(err);
-//     }
-//   },
+  test: async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const card = await Card.findById("67df1782ca0bbb5fc8489b1a").select(
+        "-_id"
+      );
+      console.log("Backend card by ID: ", card);
+      res.json(card);
+    } catch (err) {
+      next(err);
+    }
+  },
+
+  //   getCardsById: async (
+  //     req: Request,
+  //     res: Response,
+  //     next: NextFunction
+  //   ) => {
+  //     try {
+  //       const card = await Card.find({ _id: req.params.id }).select(
+  //         "_id"
+  //       );
+  //       console.log("Backend card by Id: ", card);
+  //       res.json(card);
+  //     } catch (err) {
+  //       next(err);
+  //     }
+  //   },
 };
 
 export default equipmentController;
