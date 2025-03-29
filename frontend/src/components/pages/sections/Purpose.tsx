@@ -1,8 +1,8 @@
 function Purpose() {
   return (
-    <div className="h-full bg-gradient-to-br from-[#d2d2d2] via-[#2d2d2d] to-[#0d0d0d]">
+    <div className="h-full bg-gradient-to-b from-[#2d2d2d] to-[#0d0d0d]">
       <div className="flex justify-center items-center py-6">
-        <h2 className="text-3xl font-medium bg-gradient-to-l text-transparent bg-clip-text from-[#141414] to-[#212121] px-6">
+        <h2 className="text-2xl md:text-3xl font-medium bg-gradient-to-l text-transparent bg-clip-text invert from-[#141414] to-[#212121] px-6">
           The purpose of Bar-born
         </h2>
       </div>

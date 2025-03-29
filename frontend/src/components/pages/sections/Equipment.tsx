@@ -36,7 +36,7 @@ function Equipment() {
   };
 
   return (
-    <div className="h-full bg-gradient-to-br from-[#2d2d2d] via-[#0d0d0d] to-[#0d0d0d]">
+    <div className="h-full bg-gradient-to-b from-[#0d0d0d] to-[#0d0d0d]">
       <div className="flex justify-start md:justify-center items-center">
         <h2
           id="equipment"
