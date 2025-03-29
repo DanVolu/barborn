@@ -21,7 +21,7 @@ function Equipment() {
   const [equipmentList, setEquipmentList] = useState<EquipmentCard[]>([]);
 
   useEffect(() => {
-    fetch(`${process.env.BACKEND_URL}/api/v1/equipment/cards`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/equipment/cards`)
       .then((response) => response.json())
       .then((data: EquipmentCard[]) => {
         setEquipmentList(data);
