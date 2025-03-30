@@ -34,27 +34,28 @@ function Template() {
     setIsLoading(true);
     setError(null);
 
-    fetch(`https://barborn.onrender.com/api/v1/equipment/card/${name}`)
+    const backendUrl =
+      import.meta.env.VITE_BACKEND_URL || "https://barborn.onrender.com";
+    console.log(`Fetching from: ${backendUrl}/api/v1/equipment/card/${name}`);
+
+    fetch(`${backendUrl}/api/v1/equipment/card/${name}`)
       .then((res) => {
         if (!res.ok) {
-          throw new Error(`Failed to fetch equipment: ${res.status}`);
+          throw new Error(
+            `Failed to fetch equipment: ${res.status} ${res.statusText}`
+          );
         }
         return res.json();
       })
-      .then((res) => {
-        if (res.json) {
-          return res.json();
-        }
-        return res;
-      })
       .then((data: Equipment | Equipment[]) => {
+        console.log("Received data:", data);
         const equipmentData = Array.isArray(data) ? data[0] : data;
         setEquipment(equipmentData);
         setIsLoading(false);
       })
       .catch((err) => {
         console.error("Error fetching equipment:", err);
-        setError("Failed to load equipment data. Please try again later.");
+        setError(`Failed to load equipment data: ${err.message}`);
         setIsLoading(false);
       });
   }, [name]);
