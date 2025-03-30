@@ -64,7 +64,7 @@ function MobileNav() {
           >
             {[
               { name: "Equipment", link: "#equipment" },
-              { name: "Supplements", link: "#supplements" },
+              // { name: "Supplements", link: "#supplements" },
               { name: "Training Plans", link: "#training" },
               { name: "Contacts", link: "#contacts" },
             ].map((item) => (

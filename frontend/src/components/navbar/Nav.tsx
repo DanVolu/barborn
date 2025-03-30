@@ -38,10 +38,10 @@ function Navbar() {
             : "opacity-0 translate-y-[-100%]"
         }`}
       >
-        <ul className="hidden md:flex gap-4 justify-end bg-[#1b1b1b]/70 border border-[#3a3a3a]/40 shadow-lg shadow-black/40 p-2 rounded-xl min-w-3/12 font-medium">
+        <ul className="hidden md:flex gap-4 justify-end bg-[#1b1b1b]/70 border border-[#3a3a3a]/40 shadow-lg shadow-black/40 p-2 rounded-xl min-w-1/12 font-medium">
           {[
             { name: "Equipment", link: "#equipment" },
-            { name: "Supplements", link: "#supplements" },
+            // { name: "Supplements", link: "#supplements" },
             { name: "Training Plans", link: "#training" },
             { name: "Contacts", link: "#contacts" },
           ].map((item) => (

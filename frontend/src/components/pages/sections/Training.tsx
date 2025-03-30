@@ -14,13 +14,13 @@ function Training() {
   } = useCarouselDrag();
 
   const imageMap: Record<string, string> = {
-    "Free sample workouts": `${import.meta.env.BASE_URL}free.png`,
-    "Calisthenics": `${import.meta.env.BASE_URL}cali.png`,
-    "Street workout": `${import.meta.env.BASE_URL}SW.png`,
-    "Street lifting": `${import.meta.env.BASE_URL}SL.jpg`,
-    "Size": `${import.meta.env.BASE_URL}size.png`,
-    "Strength": `${import.meta.env.BASE_URL}strength.png`,
-    "Mobility": `${import.meta.env.BASE_URL}mobility.png`,
+    // "Free sample workouts": `${import.meta.env.BASE_URL}free.png`,
+    // "Calisthenics": `${import.meta.env.BASE_URL}cali.png`,
+    // "Street workout": `${import.meta.env.BASE_URL}SW.png`,
+    // "Street lifting": `${import.meta.env.BASE_URL}SL.jpg`,
+    // "Size": `${import.meta.env.BASE_URL}size.png`,
+    // "Strength": `${import.meta.env.BASE_URL}strength.png`,
+    // "Mobility": `${import.meta.env.BASE_URL}mobility.png`,
   };
 
   const trainingGoals = [

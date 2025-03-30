@@ -14,10 +14,10 @@ function Supplements() {
   } = useCarouselDrag();
 
   const imageMap: Record<string, string> = {
-    "Protein Powder": `${import.meta.env.BASE_URL}protein.jpg`,
-    "Creatine Monohydrate": `${import.meta.env.BASE_URL}creatine.jpg`,
-    "Magnesium": `${import.meta.env.BASE_URL}magnesium.jpg`,
-    "Vitamins": `${import.meta.env.BASE_URL}vitamins.jpg`,
+    // "Protein Powder": `${import.meta.env.BASE_URL}protein.jpg`,
+    // "Creatine Monohydrate": `${import.meta.env.BASE_URL}creatine.jpg`,
+    // "Magnesium": `${import.meta.env.BASE_URL}magnesium.jpg`,
+    // "Vitamins": `${import.meta.env.BASE_URL}vitamins.jpg`,
   };
 
   const supplementsList = [

@@ -32,10 +32,15 @@ function Landing() {
             BORN
           </span>
         </h1>
-        <p className="text-[#343434] text-lg md:text-2xl px-4 text-end md:text-end font-medium z-50">
+        <p className="text-[#343434]/90 text-lg md:text-2xl px-4 text-end md:text-end font-medium z-50">
           From the Bar, For the Strong
+          {/* Your resource for bodyweight training gear, supplements, and expert
+          advice. */}
         </p>
-        <a href="#equipment" className="bg-[#343434] text-[#e2e2e2] text-center mt-4 px-4 py-2 rounded-md text-lg font-medium transform transition hover:scale-105 z-50">
+        <a
+          href="#equipment"
+          className="bg-[#343434] text-[#e2e2e2] text-center mt-8 px-4 py-2 rounded-md text-lg font-medium transform duration-500 transition hover:scale-105 z-50"
+        >
           Explore Collection
         </a>
       </div>
