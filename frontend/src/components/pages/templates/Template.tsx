@@ -38,7 +38,12 @@ function Template() {
       import.meta.env.VITE_BACKEND_URL || "https://barborn.onrender.com";
     console.log(`Fetching from: ${backendUrl}/api/v1/equipment/card/${name}`);
 
-    fetch(`${backendUrl}/api/v1/equipment/card/${name}`)
+    fetch(`${backendUrl}/api/v1/equipment/card/${name}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
       .then((res) => {
         if (!res.ok) {
           throw new Error(

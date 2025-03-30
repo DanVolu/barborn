@@ -4,9 +4,6 @@ import connectDB from "./db/db";
 import routes from "./routes/index";
 
 const app = express();
-
-connectDB();
-
 const port = process.env.PORT || 7000;
 
 app.use(
@@ -22,9 +19,11 @@ app.use(
   })
 );
 
+app.options('*', cors());
+
 app.use(express.json());
 
-app.options("*", cors());
+connectDB();
 
 app.use("/api/v1", routes);
 
