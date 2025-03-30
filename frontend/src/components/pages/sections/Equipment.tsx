@@ -19,6 +19,7 @@ function Equipment() {
   } = useCarouselDrag();
 
   const [equipmentList, setEquipmentList] = useState<EquipmentCard[]>([]);
+  const [fetchError, setFetchError] = useState(false);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/equipment/cards`)
@@ -26,7 +27,11 @@ function Equipment() {
       .then((data: EquipmentCard[]) => {
         setEquipmentList(data);
       })
-      .catch((error) => console.error("Error fetching equipment:", error));
+      .catch((error) => {
+        console.error("Error fetching equipment:", error);
+        setFetchError(true);
+        setEquipmentList(Array(4).fill({ name: "", image: "none" }));
+      });
   }, []);
 
   const handleNavigation = (item: string) => {
@@ -45,6 +50,11 @@ function Equipment() {
           Browse by equipment
         </h2>
       </div>
+      {fetchError && (
+        <div className="text-center text-red-400 mb-4">
+          Unable to load equipment. Please refresh the page.
+        </div>
+      )}
       <div className="relative overflow-hidden">
         <div
           ref={carouselRef}
@@ -60,14 +70,18 @@ function Equipment() {
         >
           {equipmentList.map((item, index) => {
             let imageUrl = item.image;
-            if (imageUrl?.includes("imgur.com") && !imageUrl.endsWith(".jpg")) {
+            if (imageUrl && imageUrl.includes("imgur.com") && !imageUrl.endsWith(".jpg")) {
               imageUrl = imageUrl.replace("imgur.com", "i.imgur.com") + ".jpg";
             }
 
             return (
               <div
                 key={index}
-                onClick={() => handleNavigation(item.name)}
+                onClick={() => {
+                  if (!fetchError && item.name) {
+                    handleNavigation(item.name);
+                  }
+                }}
                 className="min-w-[80%] md:min-w-[25rem] lg:min-w-[30rem] h-[30rem] rounded-lg border border-[#3a3a3a] shadow-lg shadow-black/40 transition-all duration-300 hover:scale-[1.02] hover:border-[#a0a0a0]/30 relative cursor-pointer"
                 style={{
                   backgroundImage:
@@ -80,9 +94,11 @@ function Equipment() {
                       : "transparent",
                 }}
               >
-                <h3 className="text-[#d2d2d2] font-medium text-2xl absolute bottom-4 left-4">
-                  {item.name}
-                </h3>
+                {!fetchError && item.name && (
+                  <h3 className="text-[#d2d2d2] font-medium text-2xl absolute bottom-4 left-4">
+                    {item.name}
+                  </h3>
+                )}
               </div>
             );
           })}

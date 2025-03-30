@@ -63,10 +63,14 @@ function Supplements() {
               onClick={() => handleNavigation(item)}
               className="min-w-[80%] md:min-w-[25rem] lg:min-w-[30rem] h-[30rem] rounded-lg bg-[#1b1b1b]/80 border border-[#3a3a3a] shadow-lg shadow-black/40 transition-all duration-300 hover:scale-[1.02] hover:border-[#a0a0a0]/30 relative cursor-pointer"
               style={{
-                backgroundImage: imageMap[item] ? `url(${imageMap[item]})` : "none",
+                backgroundImage: imageMap[item]
+                  ? `url(${imageMap[item]})`
+                  : "none",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                backgroundColor: imageMap[item] ? "transparent" : "rgba(27, 27, 27, 0.8)",
+                backgroundColor: imageMap[item]
+                  ? "transparent"
+                  : "rgba(27, 27, 27, 0.8)",
               }}
             >
               <h3 className="text-[#d2d2d2] font-medium text-2xl absolute bottom-4 left-4">
