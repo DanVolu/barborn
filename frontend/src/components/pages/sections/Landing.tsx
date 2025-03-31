@@ -1,4 +1,8 @@
+import { useScrollToSection } from "../../hooks/navScroll";
+
 function Landing() {
+  const { scrollToSection } = useScrollToSection();
+
   return (
     <main className="flex">
       <div className="flex flex-col justify-center md:items-center w-full h-screen md:h-screen px-4 bg-gradient-to-b from-[#101010] via-[#d2d2d2] to-[#2d2d2d]">
@@ -38,8 +42,8 @@ function Landing() {
           advice. */}
         </p>
         <a
-          href="#equipment"
           className="bg-[#343434] text-[#e2e2e2] text-center mt-8 px-4 py-2 rounded-md text-lg font-medium transform duration-500 transition hover:scale-105 z-50"
+          onClick={() => scrollToSection("equipment")}
         >
           Explore Collection
         </a>
