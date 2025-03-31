@@ -95,7 +95,7 @@ function Equipment() {
                 }}
               >
                 {!fetchError && item.name && (
-                  <h3 className="text-[#d2d2d2] font-medium text-2xl absolute bottom-4 left-4">
+                  <h3 className="text-[#d2d2d2] bg-slate-700/30 rounded-lg p-1 font-medium text-2xl absolute bottom-4 left-4">
                     {item.name}
                   </h3>
                 )}

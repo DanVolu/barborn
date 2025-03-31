@@ -42,8 +42,8 @@ function Purpose() {
               Found something that you’re unsure about, want a second opinion
               on, or want to suggest a product? Feel free to{" "}
               <a href="#contact" className="relative inline-block">
-                <span className="border-transparent hover:border-[#d2d2d2] after:absolute after:w-full after:h-[2px] after:bg-[#d2d2d2] after:scale-x-0 after:transition-transform after:origin-left hover:after:scale-x-100">
-                  <b>reach out</b>
+                <span className="font-bold border-transparent hover:border-[#d2d2d2] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#d2d2d2] after:scale-x-0 after:transition-transform after:origin-left hover:after:scale-x-100">
+                  reach out
                 </span>
               </a>
               . We'll gladly assist you in making the right choice.
