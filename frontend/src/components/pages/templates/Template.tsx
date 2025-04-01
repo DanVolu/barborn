@@ -144,9 +144,9 @@ function Template() {
                       )}
                   </>
                 )}
-                <button className="bg-[#d2d2d2] text-[#1b1b1b] py-2 px-4 rounded-lg mt-4 xl:mt-auto font-medium cursor-pointer hover:scale-105 hover:text-[#131313] hover:bg-[#d2d2d2]/80 transition-all duration-300 self-start">
+                {/* <button className="bg-[#d2d2d2] text-[#1b1b1b] py-2 px-4 rounded-lg mt-4 xl:mt-auto font-medium cursor-pointer hover:scale-105 hover:text-[#131313] hover:bg-[#d2d2d2]/80 transition-all duration-300 self-start">
                   Button!!
-                </button>
+                </button> */}
               </div>
             </div>
 
