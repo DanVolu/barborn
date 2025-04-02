@@ -5,7 +5,7 @@ function Landing() {
 
   return (
     <main className="flex">
-      <div className="flex flex-col justify-center md:items-center w-full h-screen md:h-screen px-4 bg-gradient-to-b from-[#101010] via-[#d2d2d2] to-[#2d2d2d]">
+      <div className="flex flex-col justify-center md:items-center w-full h-screen md:h-screen px-4 bg-gradient-to-b from-[#181818] via-[#adadad] to-[#2d2d2d]">
         <h1 className="text-[#343434] mt-2 lg:border-0 rounded-md text-8xl sm:text-9xl font-semibold uppercase flex flex-col md:flex-row items-center text-center p-2">
           <div className="hidden absolute -ml-24 top-0 -mt-55 inset-0 z-0 lg:flex justify-center items-center">
             <img
@@ -42,7 +42,7 @@ function Landing() {
           advice. */}
         </p>
         <a
-          className="bg-[#343434] text-[#e2e2e2] text-center mt-8 px-4 py-2 rounded-md text-lg font-medium transform duration-500 transition hover:scale-105 z-50"
+          className="bg-[#343434] text-[#e2e2e2] text-center mt-8 px-4 py-2 rounded-md text-lg font-medium transform duration-500 transition cursor-pointer opacity-90 hover:opacity-80 z-50"
           onClick={() => scrollToSection("equipment")}
         >
           Explore Collection
