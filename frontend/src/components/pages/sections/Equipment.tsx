@@ -22,16 +22,32 @@ function Equipment() {
   const [fetchError, setFetchError] = useState(false);
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/equipment/cards`)
-      .then((response) => response.json())
-      .then((data: EquipmentCard[]) => {
+    let attempts = 0;
+    const maxAttempts = 5;
+    const retryDelay = 2000;
+
+    const fetchEquipment = async () => {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/equipment/cards`);
+        if (!response.ok) throw new Error("Network response was not ok");
+
+        const data: EquipmentCard[] = await response.json();
         setEquipmentList(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching equipment:", error);
-        setFetchError(true);
-        setEquipmentList(Array(4).fill({ name: "", image: "none" }));
-      });
+        setFetchError(false);
+      } catch (error) {
+        console.error(`Fetch attempt ${attempts + 1} failed:`, error);
+        attempts++;
+
+        if (attempts < maxAttempts) {
+          setTimeout(fetchEquipment, retryDelay);
+        } else {
+          setFetchError(true);
+          setEquipmentList(Array(4).fill({ name: "", image: "none" }));
+        }
+      }
+    };
+
+    fetchEquipment();
   }, []);
 
   const handleNavigation = (item: string) => {
@@ -45,7 +61,7 @@ function Equipment() {
       <div className="flex justify-start md:justify-center items-center">
         <h2
           id="equipment"
-          className="text-2xl font-medium bg-gradient-to-l text-transparent bg-clip-text from-[#d2d2d2] to-[#d2d2d2] py-6 sm:py-6 px-6"
+          className="text-2xl font-medium bg-gradient-to-l text-transparent bg-clip-text from-[#eeeeee] to-[#eeeeee] py-6 sm:py-6 px-6"
         >
           Browse by equipment
         </h2>
@@ -58,7 +74,7 @@ function Equipment() {
       <div className="relative overflow-hidden">
         <div
           ref={carouselRef}
-          className="flex gap-6 overflow-x-auto custom-scrollbar p-4"
+          className="flex gap-6 overflow-x-auto custom-scrollbar p-2 border-x-[1.5rem] border-[#0d0d0d]"
           onMouseDown={handleMouseDown}
           onMouseLeave={handleMouseLeave}
           onMouseUp={handleMouseUp}
@@ -95,7 +111,7 @@ function Equipment() {
                 }}
               >
                 {!fetchError && item.name && (
-                  <h3 className="text-[#d2d2d2] bg-slate-700/30 rounded-lg p-1 font-medium text-2xl absolute bottom-4 left-4">
+                  <h3 className="text-[#f0f0f0ee] bg-slate-700/30 rounded-lg p-1 font-medium text-2xl absolute bottom-4 left-4">
                     {item.name}
                   </h3>
                 )}

@@ -31,38 +31,46 @@ function Template() {
   useEffect(() => {
     if (!name) return;
 
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || "https://barborn.onrender.com";
+    let attempts = 0;
+    const maxAttempts = 5;
+    const retryDelay = 2000;
+
+    const fetchEquipment = async () => {
+      try {
+        const response = await fetch(`${backendUrl}/api/v1/equipment/card/${name}`, {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        });
+
+        if (!response.ok) throw new Error(`Failed to fetch: ${response.status} ${response.statusText}`);
+
+        const data: Equipment | Equipment[] = await response.json();
+        setEquipment(Array.isArray(data) ? data[0] : data);
+        setIsLoading(false);
+        setError(null);
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          console.error(`Fetch attempt ${attempts + 1} failed:`, err.message);
+          setError(`Failed to load equipment data: ${err instanceof Error ? err.message : "Unknown error"}`);
+        } else {
+          console.error(`Fetch attempt ${attempts + 1} failed:`, err);
+          setError("An unknown error occurred.");
+        }
+        attempts++;
+
+        if (attempts < maxAttempts) {
+          setTimeout(fetchEquipment, retryDelay);
+        } else {
+          setError(`Failed to load equipment data: ${err instanceof Error ? err.message : "Unknown error"}`);
+          setIsLoading(false);
+        }
+      }
+    };
+
     setIsLoading(true);
     setError(null);
-
-    const backendUrl =
-      import.meta.env.VITE_BACKEND_URL || "https://barborn.onrender.com";
-    console.log(`Fetching from: ${backendUrl}/api/v1/equipment/card/${name}`);
-
-    fetch(`${backendUrl}/api/v1/equipment/card/${name}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(
-            `Failed to fetch equipment: ${res.status} ${res.statusText}`
-          );
-        }
-        return res.json();
-      })
-      .then((data: Equipment | Equipment[]) => {
-        console.log("Received data:", data);
-        const equipmentData = Array.isArray(data) ? data[0] : data;
-        setEquipment(equipmentData);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.error("Error fetching equipment:", err);
-        setError(`Failed to load equipment data: ${err.message}`);
-        setIsLoading(false);
-      });
+    fetchEquipment();
   }, [name]);
 
   const formatImageUrl = (url: string) => {
@@ -75,7 +83,7 @@ function Template() {
   return (
     <main className="flex">
       <div className="min-h-screen flex flex-col justify-center md:items-center w-full px-4 bg-gradient-to-br from-[#101010] via-[#424242] to-[#2d2d2d]">
-        <div className="w-10/12 flex items-start justify-start px-8 py-6 text-xl transition-all duration-500 z-50">
+        <div className="w-10/12 flex items-start justify-start px-8 py-6 text-xl">
           <a
             onClick={() => navigate("/")}
             className="text-[#d2d2d2] cursor-pointer p-1 rounded-lg -ml-4 px-4 bg-[#1b1b1b]/80 border border-[#3a3a3a] shadow-lg shadow-black/40 transition-all duration-300 hover:scale-[1.02] hover:border-[#a0a0a0]/80 hover:text-[#e8e8e8]"
@@ -144,24 +152,15 @@ function Template() {
                       )}
                   </>
                 )}
-                {/* <button className="bg-[#d2d2d2] text-[#1b1b1b] py-2 px-4 rounded-lg mt-4 xl:mt-auto font-medium cursor-pointer hover:scale-105 hover:text-[#131313] hover:bg-[#d2d2d2]/80 transition-all duration-300 self-start">
-                  Button!!
-                </button> */}
               </div>
             </div>
 
             {equipment.detailLinks && equipment.detailLinks.length > 0 && (
               <div className="min-h-screen flex flex-col justify-center md:items-center w-full px-4">
                 <div className="flex flex-col border-2 border-[#3a3a3a] p-4 mt-8 h-full md:w-10/12 rounded-lg bg-[#1b1b1b]/80 shadow-lg shadow-black/40">
-                  <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-6">
-                    <h3 className="text-[#d2d2d2] text-2xl font-semibold">
-                      Where to Buy {equipment.name}
-                    </h3>
-                    <button className="bg-[#d2d2d2] text-[#1b1b1b] py-2 px-6 mt-4 lg:mt-0 rounded-lg font-medium cursor-pointer hover:bg-[#d2d2d2]/80 transition-all duration-300 self-start">
-                      Sort by Price
-                    </button>
-                  </div>
-
+                  <h3 className="text-[#d2d2d2] text-2xl font-semibold mb-4">
+                    Where to Buy {equipment.name}
+                  </h3>
                   {equipment.detailLinks.map((link, index) => (
                     <a
                       key={index}
@@ -171,11 +170,11 @@ function Template() {
                       className="flex flex-row gap-4 mb-6 p-4 rounded-lg border-2 border-[#3a3a3a] bg-gradient-to-bl from-[#272727] to-[#1b1b1b] shadow-lg shadow-black/40 hover:border-[#a0a0a0]/40 hover:text-[#e8e8e8] transition-all duration-500 cursor-pointer"
                     >
                       <img
-                        className="h-25 w-25 rounded-lg border-2 border-white "
+                        className="h-25 w-25 rounded-lg border-2 border-white"
                         src={link.image}
                         alt={link.text}
                       />
-                      <div className="flex flex-col ">
+                      <div className="flex flex-col">
                         <span className="text-[#d2d2d2] text-xl mt-4">
                           {link.text}
                         </span>
