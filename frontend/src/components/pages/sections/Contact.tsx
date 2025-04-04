@@ -14,25 +14,22 @@ function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitStatus("success");
 
-      // Reset form after successful submission
       setReason("");
       setOtherReason("");
       setEmail("");
       setMessage("");
 
-      // Clear success message after 5 seconds
       setTimeout(() => setSubmitStatus(null), 5000);
     }, 1500);
   };
 
   return (
     <div
-      id="contacts"
+      id="contact"
       className="h-full bg-gradient-to-b from-[#0d0d0d] to-[#101010] py-24"
     >
       <div className="flex justify-start md:justify-center items-center">

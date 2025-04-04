@@ -31,19 +31,26 @@ function Template() {
   useEffect(() => {
     if (!name) return;
 
-    const backendUrl = import.meta.env.VITE_BACKEND_URL || "https://barborn.onrender.com";
+    const backendUrl =
+      import.meta.env.VITE_BACKEND_URL || "https://barborn.onrender.com";
     let attempts = 0;
     const maxAttempts = 5;
     const retryDelay = 2000;
 
     const fetchEquipment = async () => {
       try {
-        const response = await fetch(`${backendUrl}/api/v1/equipment/card/${name}`, {
-          method: "GET",
-          headers: { "Content-Type": "application/json" },
-        });
+        const response = await fetch(
+          `${backendUrl}/api/v1/equipment/card/${name}`,
+          {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+          }
+        );
 
-        if (!response.ok) throw new Error(`Failed to fetch: ${response.status} ${response.statusText}`);
+        if (!response.ok)
+          throw new Error(
+            `Failed to fetch: ${response.status} ${response.statusText}`
+          );
 
         const data: Equipment | Equipment[] = await response.json();
         setEquipment(Array.isArray(data) ? data[0] : data);
@@ -52,7 +59,11 @@ function Template() {
       } catch (err: unknown) {
         if (err instanceof Error) {
           console.error(`Fetch attempt ${attempts + 1} failed:`, err.message);
-          setError(`Failed to load equipment data: ${err instanceof Error ? err.message : "Unknown error"}`);
+          setError(
+            `Failed to load equipment data: ${
+              err instanceof Error ? err.message : "Unknown error"
+            }`
+          );
         } else {
           console.error(`Fetch attempt ${attempts + 1} failed:`, err);
           setError("An unknown error occurred.");
@@ -62,7 +73,11 @@ function Template() {
         if (attempts < maxAttempts) {
           setTimeout(fetchEquipment, retryDelay);
         } else {
-          setError(`Failed to load equipment data: ${err instanceof Error ? err.message : "Unknown error"}`);
+          setError(
+            `Failed to load equipment data: ${
+              err instanceof Error ? err.message : "Unknown error"
+            }`
+          );
           setIsLoading(false);
         }
       }

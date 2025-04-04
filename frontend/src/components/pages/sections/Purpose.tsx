@@ -1,4 +1,7 @@
+import { useScrollToSection } from "../../hooks/navScroll";
 function Purpose() {
+  const { scrollToSection } = useScrollToSection();
+
   return (
     <div className="h-full bg-gradient-to-b from-[#2d2d2d] to-[#0d0d0d]">
       <div className="flex justify-center items-center md:py-6">
@@ -41,7 +44,7 @@ function Purpose() {
             <p className="text-[#c2c2c2] text-lg">
               Found something that you’re unsure about, want a second opinion
               on, or want to suggest a product? Feel free to{" "}
-              <a href="#contact" className="relative inline-block">
+              <a  onClick={() => scrollToSection("contact")} className="relative inline-block cursor-pointer">
                 <span className="font-bold border-transparent hover:border-[#d2d2d2] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#d2d2d2] after:scale-x-0 after:transition-transform after:origin-left hover:after:scale-x-100">
                   reach out
                 </span>
