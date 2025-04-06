@@ -35,7 +35,7 @@ function Training() {
   };
 
   return (
-    <div className="h-full bg-gradient-to-br from-[#0d0d0d] via-[#0d0d0d] to-[#0d0d0d]">
+    <div className="h-full bg-gradient-to-br from-[#0d0d0d] via-[#0d0d0d] to-[#0d0d0d] pt-24">
       <div className="flex justify-start md:justify-center items-center">
         <h2
           id="training"

@@ -97,11 +97,11 @@ function Template() {
 
   return (
     <main className="flex">
-      <div className="min-h-screen flex flex-col justify-center md:items-center w-full px-4 bg-gradient-to-br from-[#101010] via-[#424242] to-[#2d2d2d]">
+      <div className="min-h-screen flex flex-col justify-center md:items-center w-full px-4 bg-gradient-to-br from-[#0d0d0d] via-[#0d0d0d] to-[#0d0d0d]">
         <div className="w-10/12 flex items-start justify-start px-8 py-6 text-xl">
           <a
             onClick={() => navigate("/")}
-            className="text-[#d2d2d2] cursor-pointer p-1 rounded-lg -ml-4 px-4 bg-[#1b1b1b]/80 border border-[#3a3a3a] shadow-lg shadow-black/40 transition-all duration-300 hover:scale-[1.02] hover:border-[#a0a0a0]/80 hover:text-[#e8e8e8]"
+            className="text-[#e0e0e0] cursor-pointer p-1 rounded-lg -ml-4 px-4 bg-[#242424] shadow-lg shadow-black/40 transition-all duration-500 hover:opacity-90"
           >
             Back
           </a>
@@ -109,13 +109,13 @@ function Template() {
 
         {isLoading && (
           <div className="flex justify-center items-center h-64">
-            <p className="text-[#d2d2d2] text-xl">Loading equipment data...</p>
+            <p className="text-[#e0e0e0] text-xl">Loading equipment data...</p>
           </div>
         )}
 
         {error && (
           <div className="flex justify-center items-center h-64">
-            <p className="text-[#d2d2d2] text-xl bg-red-900/30 p-4 rounded-lg">
+            <p className="text-[#e0e0e0] text-xl bg-[#000000] p-4 rounded-lg">
               {error}
             </p>
           </div>
@@ -124,7 +124,7 @@ function Template() {
         {!isLoading && !error && equipment && (
           <>
             <div className="flex flex-col xl:flex-row gap-8 justify-between md:w-10/12 px-4">
-              <div className="min-w-10/12 h-[20rem] xl:min-w-[30rem] lg:h-[40rem] xl:h-[30rem] rounded-lg bg-[#1b1b1b]/80 border border-[#3a3a3a] shadow-lg shadow-black/40 transition-all duration-300 hover:scale-[1.02] hover:border-[#a0a0a0]/30 relative">
+              <div className="min-w-10/12 h-[20rem] xl:min-w-[30rem] lg:h-[40rem] xl:h-[30rem] rounded-lg bg-[#111111] border-[#444444] shadow-lg shadow-black/40 transition-all duration-300 hover:scale-[1.02] hover:border-[#444444]/30 relative">
                 <img
                   src={formatImageUrl(equipment.image)}
                   alt={equipment.name}
@@ -132,13 +132,13 @@ function Template() {
                 />
               </div>
 
-              <div className="border-2 border-[#3a3a3a] p-6 rounded-lg bg-[#1b1b1b]/80 shadow-lg shadow-black/40 flex flex-col">
-                <h3 className="text-[#d2d2d2] text-3xl font-semibold mb-4">
+              <div className="border-[#444444] p-6 rounded-lg bg-gradient-to-br from-[#111111] to-[#111111] shadow-lg shadow-black/40 flex flex-col">
+                <h3 className="text-[#e0e0e0] text-3xl md:text-4xl font-semibold mb-4">
                   {equipment.name}
                 </h3>
                 {equipment.description && (
                   <>
-                    <div className="flex flex-col text-[#d2d2d2] text-lg mb-4">
+                    <div className="flex flex-col text-[#e0e0e0] text-lg mb-4">
                       {equipment.description.difficulty && (
                         <p>Difficulty: {equipment.description.difficulty}</p>
                       )}
@@ -146,17 +146,17 @@ function Template() {
                         <p>Usefulness: {equipment.description.usefulness}</p>
                       )}
                     </div>
-                    <p className="text-[#d2d2d2] text-base leading-relaxed space-x-2">
+                    <p className="text-[#e0e0e0] text-base leading-relaxed space-x-2">
                       <strong>Disclaimer:</strong> The views expressed here are
                       solely those of the author. {equipment.description.text}
                     </p>
                     {equipment.description.exercises &&
                       equipment.description.exercises.length > 0 && (
                         <div className="mt-4">
-                          <strong className="text-[#d2d2d2]">
+                          <strong className="text-[#e0e0e0]">
                             Key Exercises:
                           </strong>
-                          <ul className="text-[#d2d2d2] ml-5 mt-2 list-disc">
+                          <ul className="text-[#e0e0e0] ml-5 mt-2 list-disc">
                             {equipment.description.exercises.map(
                               (exercise, idx) => (
                                 <li key={idx}>{exercise}</li>
@@ -172,8 +172,8 @@ function Template() {
 
             {equipment.detailLinks && equipment.detailLinks.length > 0 && (
               <div className="min-h-screen flex flex-col justify-center md:items-center w-full px-4">
-                <div className="flex flex-col border-2 border-[#3a3a3a] p-4 mt-8 h-full md:w-10/12 rounded-lg bg-[#1b1b1b]/80 shadow-lg shadow-black/40">
-                  <h3 className="text-[#d2d2d2] text-2xl font-semibold mb-4">
+                <div className="flex flex-col border-[#444444] p-4 mt-8 h-full md:w-10/12 rounded-lg bg-[#111111] shadow-lg shadow-black/40">
+                  <h3 className="text-[#e0e0e0] text-2xl font-semibold mb-4">
                     Where to Buy {equipment.name}
                   </h3>
                   {equipment.detailLinks.map((link, index) => (
@@ -182,18 +182,18 @@ function Template() {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex flex-row gap-4 mb-6 p-4 rounded-lg border-2 border-[#3a3a3a] bg-gradient-to-bl from-[#272727] to-[#1b1b1b] shadow-lg shadow-black/40 hover:border-[#a0a0a0]/40 hover:text-[#e8e8e8] transition-all duration-500 cursor-pointer"
+                      className="flex flex-row gap-4 mb-6 p-4 rounded-lg border-[#444444] bg-gradient-to-bl from-[#1a1a1a] to-[#1a1a1a] shadow-md shadow-black/40 hover:opacity-90 cursor-pointer"
                     >
                       <img
-                        className="h-25 w-25 rounded-lg border-2 border-white"
+                        className="h-25 w-25 rounded-lg border-white"
                         src={link.image}
                         alt={link.text}
                       />
                       <div className="flex flex-col">
-                        <span className="text-[#d2d2d2] text-xl mt-4">
+                        <span className="text-[#e0e0e0] text-xl mt-4">
                           {link.text}
                         </span>
-                        <span className="text-[#d2d2d2] text-md">
+                        <span className="text-[#e0e0e0] text-md">
                           ${link.price}
                         </span>
                       </div>
