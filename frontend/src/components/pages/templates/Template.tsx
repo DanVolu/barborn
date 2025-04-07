@@ -101,7 +101,7 @@ function Template() {
         <div className="w-10/12 flex items-start justify-start px-8 py-6 text-xl">
           <a
             onClick={() => navigate("/")}
-            className="text-[#e0e0e0] cursor-pointer p-1 rounded-lg -ml-4 px-4 bg-[#242424] shadow-lg shadow-black/40 transition-all duration-500 hover:opacity-90"
+            className="text-[#e0e0e0] cursor-pointer p-1 rounded-lg -ml-4 px-4 bg-[#1a1a1a] shadow-md shadow-black/40 transition-all duration-500 hover:opacity-90"
           >
             Back
           </a>
@@ -133,26 +133,26 @@ function Template() {
               </div>
 
               <div className="border-[#444444] p-6 rounded-lg bg-gradient-to-br from-[#111111] to-[#111111] shadow-lg shadow-black/40 flex flex-col">
-                <h3 className="text-[#e0e0e0] text-3xl md:text-4xl font-semibold mb-4">
+                <h3 className="text-[#e0e0e0] text-3xl md:text-4xl font-semibold mb-2">
                   {equipment.name}
                 </h3>
                 {equipment.description && (
                   <>
-                    <div className="flex flex-col text-[#e0e0e0] text-lg mb-4">
+                    <div className="flex flex-col text-[#e0e0e0] text-xl font-semibold mb-4">
                       {equipment.description.difficulty && (
-                        <p>Difficulty: {equipment.description.difficulty}</p>
+                        <p>{equipment.description.difficulty}</p>
                       )}
-                      {equipment.description.usefulness && (
+                      {/* {equipment.description.usefulness && (
                         <p>Usefulness: {equipment.description.usefulness}</p>
-                      )}
+                      )} */}
                     </div>
-                    <p className="text-[#e0e0e0] text-base leading-relaxed space-x-2">
+                    <p className="text-[#e0e0e0] text-lg leading-relaxed space-x-2">
                       <strong>Disclaimer:</strong> The views expressed here are
                       solely those of the author. {equipment.description.text}
                     </p>
                     {equipment.description.exercises &&
                       equipment.description.exercises.length > 0 && (
-                        <div className="mt-4">
+                        <div className="mt-4 md:mt-6">
                           <strong className="text-[#e0e0e0]">
                             Key Exercises:
                           </strong>
@@ -182,7 +182,7 @@ function Template() {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex flex-row gap-4 mb-6 p-4 rounded-lg border-[#444444] bg-gradient-to-bl from-[#1a1a1a] to-[#1a1a1a] shadow-md shadow-black/40 hover:opacity-90 cursor-pointer"
+                      className="flex flex-row gap-4 mb-6 p-4 rounded-lg bg-[#191919] shadow-md shadow-black/40 hover:opacity-90 cursor-pointer"
                     >
                       <img
                         className="h-25 w-25 rounded-lg border-white"
