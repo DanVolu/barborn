@@ -14,7 +14,7 @@ function Training() {
   } = useCarouselDrag();
 
   const trainingGoals = [
-    "Free sample workouts",
+    "Free guides and templates",
     "Calisthenics",
     "Street workout",
     "Street lifting",
@@ -25,6 +25,9 @@ function Training() {
 
   const handleNavigation = (item: string) => {
     if (clickPrevent) return;
+
+    window.scrollTo(0, 0);
+
     if (item === "Free sample workouts") {
       // Temporary change
       navigate("/workout");
@@ -35,19 +38,26 @@ function Training() {
   };
 
   return (
-    <div className="h-full bg-gradient-to-br from-[#0d0d0d] via-[#0d0d0d] to-[#0d0d0d] pt-24">
-      <div className="flex justify-start md:justify-center items-center">
-        <h2
+    <div className="h-full bg-gradient-to-br from-[#0d0d0d] via-[#0d0d0d] to-[#0d0d0d] pt-12">
+      <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center w-11/12 mx-auto px-3 md:px-2">
+      <h2
           id="training"
-          className="text-2xl font-medium bg-gradient-to-l text-transparent bg-clip-text from-[#dfdfdf] to-[#d2d2d2] px-6"
+          className="text-3xl md:text-4xl font-semibold bg-gradient-to-l text-transparent bg-clip-text from-[#eeeeee] to-[#eeeeee] md:py-8 sm:pb-8 md:px-0"
         >
           Browse by training goal
         </h2>
+        <button
+          onClick={() => navigate("/plans")}
+          className="text-md text-[#a0a0a0] sm:ml-4 mb-4 mt-1 hover:text-[#d2d2d2] transform duration-300 cursor-pointer"
+        >
+          View all plans
+        </button>
       </div>
-      <div className="relative overflow-hidden">
+
+      <div className="relative overflow-hidden md:w-11/12 mx-auto">
         <div
           ref={carouselRef}
-          className="flex gap-6 overflow-x-auto custom-scrollbar p-4"
+          className="flex gap-6 overflow-x-auto custom-scrollbar p-2 border-x-[1.5rem] border-[#0d0d0d] md:border-x-0"
           onMouseDown={handleMouseDown}
           onMouseLeave={handleMouseLeave}
           onMouseUp={handleMouseUp}

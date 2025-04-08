@@ -62,7 +62,7 @@ function MobileNav() {
         {isOpen && (
           <ul
             ref={dropdownRef}
-            className="absolute right-0 mr-4 w-11/12 bg-[#1b1b1b]/80 border border-[#3a3a3a] shadow-lg shadow-black/40 rounded-lg opacity-95 transition-all duration-300"
+            className="absolute right-0 mr-4 w-11/12 bg-[#1b1b1b] border border-[#3a3a3a] shadow-md shadow-black/40 rounded-md transition-all duration-300"
           >
             {[
               { name: "Equipment", link: "equipment" },
@@ -72,7 +72,7 @@ function MobileNav() {
             ].map((item) => (
               <li
                 key={item.name}
-                className="px-4 py-2 text-gray-300 hover:bg-[#292929] hover:border-[#a0a0a0]/30 transition-all duration-300 rounded-lg"
+                className="px-4 py-2 text-gray-300 hover:bg-[#292929] hover:border-[#a0a0a0]/30 transition-all duration-300 rounded-md"
               >
                 <a
                   onClick={() => scrollToSection(item.link)}

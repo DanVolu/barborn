@@ -28,7 +28,9 @@ function Equipment() {
 
     const fetchEquipment = async () => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/equipment/cards`);
+        const response = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}/api/v1/equipment/cards`
+        );
         if (!response.ok) throw new Error("Network response was not ok");
 
         const data: EquipmentCard[] = await response.json();
@@ -57,24 +59,30 @@ function Equipment() {
   };
 
   return (
-    <div className="h-full bg-gradient-to-b from-[#0d0d0d] to-[#0d0d0d]">
-      <div className="flex justify-start md:justify-center items-center">
+    <div className="h-full bg-[#0d0d0d]">
+      <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center w-11/12 mx-auto px-3 md:px-2">
         <h2
           id="equipment"
-          className="text-2xl font-medium bg-gradient-to-l text-transparent bg-clip-text from-[#eeeeee] to-[#eeeeee] py-6 sm:py-6 px-6"
+          className="text-3xl md:text-4xl font-semibold bg-gradient-to-l text-transparent bg-clip-text from-[#eeeeee] to-[#eeeeee] md:py-8 sm:pb-8 md:px-0"
         >
           Browse by equipment
         </h2>
+        <button
+          onClick={() => navigate("/equipment")}
+          className="text-md text-[#a0a0a0] sm:ml-4 mb-4 mt-1 hover:text-[#d2d2d2] transform duration-300 cursor-pointer"
+        >
+          View all equipment
+        </button>
       </div>
       {fetchError && (
         <div className="text-center text-red-400 mb-4">
           Unable to load equipment. Please refresh the page.
         </div>
       )}
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden md:w-11/12 mx-auto">
         <div
           ref={carouselRef}
-          className="flex gap-6 overflow-x-auto custom-scrollbar p-2 border-x-[1.5rem] border-[#0d0d0d]"
+          className="flex gap-6 overflow-x-auto custom-scrollbar p-2 border-x-[1.5rem] border-[#0d0d0d] md:border-x-0"
           onMouseDown={handleMouseDown}
           onMouseLeave={handleMouseLeave}
           onMouseUp={handleMouseUp}
@@ -86,7 +94,11 @@ function Equipment() {
         >
           {equipmentList.map((item, index) => {
             let imageUrl = item.image;
-            if (imageUrl && imageUrl.includes("imgur.com") && !imageUrl.endsWith(".jpg")) {
+            if (
+              imageUrl &&
+              imageUrl.includes("imgur.com") &&
+              !imageUrl.endsWith(".jpg")
+            ) {
               imageUrl = imageUrl.replace("imgur.com", "i.imgur.com") + ".jpg";
             }
 
@@ -111,7 +123,7 @@ function Equipment() {
                 }}
               >
                 {!fetchError && item.name && (
-                  <h3 className="text-[#f0f0f0ee] bg-slate-700/30 rounded-lg p-1 font-medium text-2xl absolute bottom-4 left-4">
+                  <h3 className="text-[#f0f0f0ee] bg-[#0d0d0d]/20 rounded-lg p-1 font-medium text-2xl absolute bottom-4 left-4">
                     {item.name}
                   </h3>
                 )}

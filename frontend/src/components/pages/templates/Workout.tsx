@@ -15,7 +15,7 @@ function Workout() {
         </div>
 
         <div className="flex flex-col gap-8 justify-between lg:w-6/12 h-full px-4">
-          <div className="border-[#444444] p-6 rounded-lg bg-gradient-to-br from-[#111111] to-[#111111] shadow-lg shadow-black/40 flex flex-col">
+          <div className="border-[#444444] p-6 rounded-lg mb-16 bg-gradient-to-br from-[#111111] to-[#111111] shadow-lg shadow-black/40 flex flex-col">
             <h3 className="text-[#e0e0e0] text-3xl md:text-4xl font-semibold mb-4">
               Bare-bones template
             </h3>

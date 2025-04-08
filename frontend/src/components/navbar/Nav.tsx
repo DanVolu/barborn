@@ -34,13 +34,13 @@ function Navbar() {
         />
       </div>
       <nav
-        className={`fixed top-0 left-0 right-0 flex justify-end p-4 transition-all duration-500 z-50 ${
+        className={`fixed top-0 left-0 right-0 flex justify-end p-4 transition-all duration-300 z-50 ${
           isVisible
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-[-100%]"
         }`}
       >
-        <ul className="hidden md:flex gap-4 justify-end bg-[#1b1b1b]/70 border border-[#3a3a3a]/40 shadow-lg shadow-black/40 p-2 rounded-xl min-w-1/12 font-medium">
+        <ul className="hidden md:flex gap-4 justify-end bg-[#1b1b1b] border border-[#3a3a3a]/40 shadow-md shadow-black/40 p-2 rounded-xl min-w-1/12 font-medium">
           {[
             { name: "Equipment", link: "equipment" },
             // { name: "Supplements", link: "supplements" },
