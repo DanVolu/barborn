@@ -36,7 +36,7 @@ function Supplements() {
   return (
     <div
       id="supplements"
-      className="h-full bg-gradient-to-br from-[#0d0d0d] via-[#0d0d0d] to-[#0d0d0d] py-24"
+      className="h-full py-24"
     >
       <div className="flex justify-start md:justify-center items-center">
         <h2 className="text-2xl font-medium bg-gradient-to-l text-transparent bg-clip-text from-[#dfdfdf] to-[#d2d2d2] px-6">

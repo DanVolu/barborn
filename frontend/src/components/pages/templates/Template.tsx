@@ -97,7 +97,7 @@ function Template() {
 
   return (
     <main className="flex">
-      <div className="min-h-screen flex flex-col justify-center md:items-center w-full px-4 bg-gradient-to-br from-[#0d0d0d] via-[#0d0d0d] to-[#0d0d0d]">
+      <div className="min-h-screen flex flex-col justify-center md:items-center w-full px-4">
         <div className="w-10/12 flex items-start justify-start px-8 py-6 text-xl">
           <a
             onClick={() => navigate("/")}
@@ -132,7 +132,7 @@ function Template() {
                 />
               </div>
 
-              <div className="border-[#444444] p-6 rounded-lg bg-gradient-to-br from-[#111111] to-[#111111] shadow-lg shadow-black/40 flex flex-col">
+              <div className="border-[#444444] p-6 rounded-lg bg-gradient-to-br from-[#0c0c0c] to-[#111111] shadow-lg shadow-black/40 flex flex-col">
                 <h3 className="text-[#e0e0e0] text-3xl md:text-4xl font-semibold mb-2">
                   {equipment.name}
                 </h3>
@@ -172,7 +172,7 @@ function Template() {
 
             {equipment.detailLinks && equipment.detailLinks.length > 0 && (
               <div className="min-h-screen flex flex-col justify-center md:items-center w-full px-4">
-                <div className="flex flex-col border-[#444444] p-4 mt-8 h-full md:w-10/12 rounded-lg bg-[#111111] shadow-lg shadow-black/40">
+                <div className="flex flex-col border-[#444444] p-4 mt-8 h-full md:w-10/12 rounded-lg bg-gradient-to-tr from-[#0c0c0c] to-[#111111] shadow-lg shadow-black/40">
                   <h3 className="text-[#e0e0e0] text-2xl font-semibold mb-4">
                     Where to Buy {equipment.name}
                   </h3>

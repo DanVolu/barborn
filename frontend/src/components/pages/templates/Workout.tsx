@@ -4,7 +4,7 @@ function Workout() {
 
   return (
     <main className="flex">
-      <div className="h-fit flex flex-col justify-center lg:items-center w-full px-4 bg-gradient-to-br from-[#0d0d0d] via-[#0d0d0d] to-[#0d0d0d]">
+      <div className="h-fit flex flex-col justify-center lg:items-center w-full px-4">
         <div className="lg:w-6/12 flex items-start justify-start px-8 py-6 text-xl">
           <a
             onClick={() => navigate("/")}
