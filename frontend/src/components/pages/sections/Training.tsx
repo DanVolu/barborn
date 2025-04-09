@@ -28,8 +28,7 @@ function Training() {
 
     window.scrollTo(0, 0);
 
-    if (item === "Free sample workouts") {
-      // Temporary change
+    if (item === "Free guides and templates") {
       navigate("/workout");
     } else {
       const formattedItem = item.toLowerCase().replace(/\s+/g, "-");

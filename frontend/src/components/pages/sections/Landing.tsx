@@ -5,7 +5,7 @@ function Landing() {
 
   return (
     <main className="flex">
-      <div className="flex flex-col justify-center md:items-center w-full h-screen md:h-screen px-4 bg-gradient-to-b from-[#0d0d0d] via-[#434343] to-[#0d0d0d]">
+      <div className="flex flex-col justify-center md:items-center w-full h-screen md:h-screen px-4 bg-gradient-to-b from-[#0d0d0d] via-[#0d0d0d] to-[#0d0d0d]">
         <h1 className="text-[#343434] mt-2 lg:border-0 rounded-md text-8xl sm:text-9xl font-semibold uppercase flex flex-col md:flex-row items-center text-center p-2">
           <div className="hidden absolute -ml-24 top-0 -mt-55 inset-0 z-0 lg:flex justify-center items-center">
             <img
