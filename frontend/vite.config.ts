@@ -8,7 +8,7 @@ export default defineConfig({
   base: "/",
   define: {
     "process.env.BACKEND_URL": JSON.stringify(
-      process.env.BACKEND_URL || "https://barborn.onrender.com"
+      process.env.BACKEND_URL || "https://barborn1.onrender.com"
     ),
   },
 });
