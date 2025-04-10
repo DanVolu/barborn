@@ -10,8 +10,8 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
+      "https://barborn-1.onrender.com",
       "https://barborn.onrender.com",
-      "https://barborn1.onrender.com",
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],

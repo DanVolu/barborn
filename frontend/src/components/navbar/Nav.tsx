@@ -25,8 +25,8 @@ function Navbar() {
   }, [lastScrollY]);
 
   return (
-    <>
-      <div className="absolute flex items-center text-gray-200 px-6 py-4 font-semibold z-50">
+    <div className="">
+      <div className=" absolute flex items-center text-gray-200 px-6 py-4 font-semibold z-50">
         <img
           src={`${import.meta.env.BASE_URL}bar.png`}
           alt="Bar-Born"
@@ -42,7 +42,7 @@ function Navbar() {
             : "opacity-0 translate-y-[-100%]"
         }`}
       >
-        <ul className="hidden md:flex gap-4 justify-end bg-[#1b1b1b] border border-[#3a3a3a]/40 shadow-md shadow-black/40 p-2 rounded-xl min-w-1/12 font-medium">
+        <ul className="hidden md:flex gap-2 justify-end bg-white/90 border border-[#3a3a3a]/40 shadow-md shadow-black/20 p-2 rounded-xl min-w-1/12 font-medium">
           {[
             { name: "Equipment", link: "equipment" },
             // { name: "Supplements", link: "supplements" },
@@ -51,7 +51,7 @@ function Navbar() {
           ].map((item) => (
             <li
               key={item.name}
-              className="p-1 px-4 text-gray-200 transition-all duration-300 hover:text-gray-100 hover:scale-105 hover:drop-shadow-md"
+              className="p-1 px-3 text-[#090909] transition-all duration-300 hover:text-[#303030] hover:scale-105 hover:drop-shadow-md"
             >
               <a
                 onClick={() => scrollToSection(item.link)}
@@ -64,7 +64,7 @@ function Navbar() {
         </ul>
         <MobileNav />
       </nav>
-    </>
+    </div>
   );
 }
 
