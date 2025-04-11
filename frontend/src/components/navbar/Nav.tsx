@@ -36,13 +36,13 @@ function Navbar() {
       </div>
 
       <nav
-        className={`fixed top-0 left-0 right-0 flex justify-end p-4 transition-all duration-300 z-50 ${
+        className={`absolute top-0 left-0 right-0 flex justify-end p-4 transition-all duration-300 z-50 ${
           isVisible
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-[-100%]"
         }`}
       >
-        <ul className="hidden md:flex gap-2 justify-end bg-white/90 border border-[#3a3a3a]/40 shadow-md shadow-black/20 p-2 rounded-xl min-w-1/12 font-medium">
+        <ul className="hidden md:flex gap-2 justify-end invert font-semibold  p-2 rounded-xl min-w-1/12">
           {[
             { name: "Equipment", link: "equipment" },
             // { name: "Supplements", link: "supplements" },
@@ -51,7 +51,7 @@ function Navbar() {
           ].map((item) => (
             <li
               key={item.name}
-              className="p-1 px-3 text-[#090909] transition-all duration-300 hover:text-[#303030] hover:scale-105 hover:drop-shadow-md"
+              className="p-1 px-3 text-[#090909] transition-all duration-300 hover:scale-105"
             >
               <a
                 onClick={() => scrollToSection(item.link)}

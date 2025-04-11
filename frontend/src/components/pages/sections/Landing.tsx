@@ -4,7 +4,7 @@ function Landing() {
   const { scrollToSection } = useScrollToSection();
 
   return (
-    <main className="relative flex md:h-[80vh] min-h-[80vh] w-full">
+    <main className="relative flex md:h-[90vh] min-h-[80vh] w-full">
       <div className="relative flex flex-col w-full h-full px-1">
         <div className="flex  flex-col md:hidden w-full h-full  items-center py-28">
           <div className="w-full text-center z-10 mt-8">
@@ -28,7 +28,7 @@ function Landing() {
 
           <div className="w-full flex justify-center z-10 mb-8">
             <a
-              className="bg-[#0f0f0f] text-[#f2f2f2] opacity-95 font-semibold w-10/12 flex justify-center items-center text-center px-4 py-2 rounded-md text-lg transform transition duration-500 cursor-pointer hover:scale-[1.03]"
+              className="bg-[#f2f2f2]/90 text-[#0f0f0f] opacity-95 font-semibold w-10/12 flex justify-center items-center text-center px-4 py-2 rounded-md text-lg transform transition duration-500 cursor-pointer hover:scale-[1.03]"
               onClick={() => scrollToSection("equipment")}
             >
               Explore Collection
