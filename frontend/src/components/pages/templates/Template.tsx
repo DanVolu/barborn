@@ -100,7 +100,7 @@ function Template() {
       <div className="min-h-screen flex flex-col justify-center md:items-center w-full px-4">
         <div className="w-10/12 flex items-start justify-start px-8 py-6 text-xl">
           <a
-            onClick={() => navigate("/")}
+            onClick={() => navigate(-1)}
             className="text-[#e0e0e0] cursor-pointer p-1 rounded-lg -ml-4 px-4 bg-[#1a1a1a] shadow-md shadow-black/40 transition-all duration-500 hover:opacity-90"
           >
             Back

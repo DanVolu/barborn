@@ -20,10 +20,6 @@ function Workout() {
               Bare-bones template
             </h3>
 
-            <div className="flex flex-col font-semibold text-[#e0e0e0] text-xl mb-4">
-              <h2>All levels</h2>
-            </div>
-
             <p className="text-[#e0e0e0] text-lg leading-relaxed">
               This template represents the bare minimum needed in a workout,
               compound exercises that cover all the influential body parts. You
@@ -38,8 +34,8 @@ function Workout() {
                 Don't limit your rest, rest between sets until you're ready.
               </li>
               <li>Start with the exercise that you find the hardest.</li>
-              <li>More doesn't always mean better</li>
               <li>Warmup with dynamic movements</li>
+              <li>More doesn't always mean better</li>
               <li>Sleep well, eat well</li>
             </ul>
 

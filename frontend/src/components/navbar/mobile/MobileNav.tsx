@@ -1,13 +1,12 @@
 import { useState, useEffect, useRef } from "react";
-import { useScrollToSection } from "../../hooks/navScroll";
+import { useNavigate } from "react-router-dom";
 
 function MobileNav() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
-  const { scrollToSection } = useScrollToSection();
-
   const dropdownRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -20,10 +19,7 @@ function MobileNav() {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   useEffect(() => {
@@ -38,18 +34,19 @@ function MobileNav() {
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
+
+  const handleNavigate = (path: string) => {
+    navigate(`/${path}`);
+    setIsOpen(false);
+  };
 
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 flex justify-end p-4 transition-all duration-500 ${
-          isVisible
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-[-100%]"
+        className={`fixed top-0 left-0 right-0 flex justify-end p-4 transition-all duration-500 z-50 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full"
         }`}
       >
         <button
@@ -75,8 +72,8 @@ function MobileNav() {
                 className="px-4 py-2 text-[#090909] hover:bg-white/50 hover:border-[#a0a0a0]/30 transition-all duration-300 rounded-md"
               >
                 <a
-                  onClick={() => scrollToSection(item.link)}
-                  className="block w-full h-full"
+                  onClick={() => handleNavigate(item.link)}
+                  className="block w-full h-full cursor-pointer"
                 >
                   {item.name}
                 </a>
