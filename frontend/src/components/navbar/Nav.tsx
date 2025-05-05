@@ -29,9 +29,17 @@ function Navbar() {
     { name: "Contacts", link: "/contact" },
   ];
 
+  const handleNavigateHome = () => {
+    navigate("/");
+  };
+
   return (
     <div className="">
-      <div className="absolute flex items-center text-[#E7E7E7] px-6 py-4 font-semibold z-50 cursor-pointer">
+      <div 
+        className="absolute flex items-center text-[#E7E7E7] px-6 py-4 font-semibold z-[100] cursor-pointer"
+        onClick={handleNavigateHome}
+        style={{ pointerEvents: 'auto' }}
+      >
         <img
           src={`${import.meta.env.BASE_URL}bar.png`}
           alt="Bar-Born"
