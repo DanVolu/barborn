@@ -15,12 +15,12 @@ function Training() {
 
   const trainingGoals = [
     "Free guides and templates",
+    "Mobility",
     "Calisthenics",
     "Street workout",
     "Street lifting",
     "Size",
     "Strength",
-    "Mobility",
   ];
 
   const handleNavigation = (item: string) => {
@@ -30,6 +30,8 @@ function Training() {
 
     if (item === "Free guides and templates") {
       navigate("/workout");
+    } else if (item === "Mobility") {
+      navigate("/mobility");
     } else {
       const formattedItem = item.toLowerCase().replace(/\s+/g, "-");
       navigate(`/training/${formattedItem}/`);
