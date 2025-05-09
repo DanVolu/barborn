@@ -1,10 +1,18 @@
-import Nav from "../../navbar/Nav";
+import { useNavigate } from "react-router-dom";
 
 function Workout() {
+  const navigate = useNavigate();
   return (
     <main className="flex">
-      <Nav></Nav>
-      <div className="h-fit flex flex-col pt-24 justify-center lg:items-center w-full px-4">
+      <div className="h-fit flex flex-col justify-center lg:items-center w-full px-4">
+        <div className="lg:w-6/12 flex items-start justify-start px-8 py-6 text-xl">
+          <a
+            onClick={() => navigate("/")}
+            className="text-[#e0e0e0] cursor-pointer p-1 rounded-lg -ml-4 px-4 bg-[#1a1a1a] shadow-md shadow-black/40 transition-all duration-500 hover:opacity-80"
+          >
+            Back
+          </a>
+        </div>
         <div className="flex flex-col gap-8 justify-between lg:w-6/12 h-full px-4">
           <div className="border-[#444444] p-6 rounded-lg mb-16 bg-gradient-to-br from-[#111111] to-[#111111] shadow-lg shadow-black/40 flex flex-col">
             <h3 className="text-[#e0e0e0] text-3xl md:text-4xl font-semibold mb-4">
